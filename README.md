@@ -1,7 +1,7 @@
 # ShorsOracle
 # 🧮 Modular Arithmetic for Shor's Algorithm (Beauregard 2003 Implementation)
 
-Using only 1-qubit gates, multi-controlled phase (MCP) and X (MC X ) gates, this project implements the modular arithmetic subroutines needed for Shor’s Algorithm using Beauregard’s 2003 construction, which uses `2n + 3` qubits. All circuits are implemented in Python using Qiskit and include formal reasoning/proofs in Markdown cells above each function within the Jupyter Notebook.
+Using only 1-qubit gates, multi-controlled phase (MCP) and X (MC X ) gates, this project implements the modular arithmetic subroutines needed for Shor’s Algorithm using Beauregard’s 2003 construction, which uses `2n + 3` qubits. All circuits are implemented in Python using Qiskit and include formal reasoning/proofs in Markdown cells above each function within the Jupyter Notebook. Each Circuit is drawn below it's function.
 
 > 📄 Reference:  
 > Stéphane Beauregard. *Circuit for Shor’s Algorithm Using 2n + 3 Qubits.*  
