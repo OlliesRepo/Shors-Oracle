@@ -47,46 +47,47 @@ For parameters \( a = 7 \), \( n = 4 \):
 
 2. **(1A)** Run the `int_to_bit_array` cell.  
    - Converts an integer to its \( n \)-bit binary array.  
-   - *Example*: Uncomment the usage section to convert \( a = 15 \) for \( n = 4 \).
+   - (Optional) Uncomment the valid code in the example usage section to see the $n = 4$ bit array representation of $a = 15$.
 
 3. **(1B)** Run the `phiADD` cell.  
-   - Implements \( b + a \) in the Fourier basis.  
-   - *Example*: Uncomment to construct the \( n = 4 \) circuit for \( a = 15 \).  
+   - Implements \( b + a \) in the Fourier basis.
+   - Requires (1A)
+   - (Optional) Uncomment the valid code in the example usage section to see the circuit for $n = 4$ qubits that adds $a = 15$.
    - *(Ref: Figure 3)*
 
 4. **(1C, 1D)** Run the `C1phiADD` and `C2phiADD` cells.  
    - Implement controlled and doubly-controlled additions.  
-   - *Example*: View circuits for \( n = 4 \), \( a = 15 \).
+   - (Optional) Uncomment the valid code in the example usage section to see the circuit for $n = 4$ qubits that adds $a = 15$.
 
 5. **(2A)** Run the `quantum_fourier_transform` cell.  
    - Converts binary values to Fourier basis.  
-   - *Example*: Uncomment for \( n = 3 \).
+   - (Optional) Uncomment the valid code in the example usage section to see the circuit for $n = 3$ qubits.
 
 6. **(2B)** Run the `inverse_quantum_fourier_transform` cell.  
    - Converts back to binary from Fourier basis.  
-   - *Example*: Uncomment for \( n = 3 \).
+   - (Optional) Uncomment the valid code in the example usage section to see the circuit for $n = 3$ qubits.
 
 7. **(2C)** Run the `C2phiADDMODN` cell.  
-   - Doubly-controlled modular adder.  
+   - Doubly-controlled modular adder that perform \(b + a \mod N \).  
    - Requires (1B), (1C), (1D), (2A), (2B).  
-   - *Example*: \( n = 4 \), \( a = 15 \).  
+   - (Optional) Uncomment the valid code in the example usage section to see the circuit for $n = 4$ qubits that adds $a = 15$.
    - *(Ref: Figure 5)*
 
 8. **(3A)** Run the `CMultModN` cell.  
    - Performs \( b + ax \mod N \).  
    - Requires (2A), (2B), (2C).  
-   - *Example*: \( n = 4 \), \( a = 15 \).  
+   - (Optional) Uncomment the valid code in the example usage section to see the circuit for $n = 4$ qubits that adds $a = 15$.
    - *(Ref: Figure 6)*
 
 9. **(3B)** Run the `CSWAP` cell.  
    - Implements a controlled-SWAP gate.  
-   - *Example*: View the circuit.  
+   - (Optional) Uncomment the valid code in the example usage section to see the circuit.
    - *(Ref: Figure 10)*
 
 10. **(3C)** Run the `ShorsOracle` cell.  
     - Controlled \( ax \mod N \) oracle.  
     - Requires (3A), (3B).  
-    - *Example*: \( n = 4 \), \( a = 15 \).  
+    - (Optional) Uncomment the valid code in the example usage section to see the circuit for $n = 4$ qubits that adds $a = 15$.
     - *(Ref: Figure 7)*
 
 11. **Run the benchmarking cell.**  
