@@ -1,32 +1,106 @@
-# ShorsOracle
-# 🧮 Modular Arithmetic for Shor's Algorithm (Beauregard 2003 Implementation)
+# ⚛️ Shor's Algorithm Oracle Construction in Qiskit
 
-Using only 1-qubit gates, multi-controlled phase (MCP) and X (MC X ) gates, this project implements the modular arithmetic subroutines needed for Shor’s Algorithm using Beauregard’s 2003 construction, which uses `2n + 3` qubits, and returns the "Shors Oracle" quantum circuit. All circuits are implemented in Python using Qiskit and include formal reasoning/proofs in Markdown cells above each function within the Jupyter Notebook. Each Circuit is drawn below it's function.
+This code implements the arithmetic subroutines and modular multiplication oracle for Shor’s algorithm, based on the circuit from:
 
-> 📄 Reference:  
-> Stéphane Beauregard. *Circuit for Shor’s Algorithm Using 2n + 3 Qubits.*  
-> Quantum Information and Computation, vol. 3, no. 2 (2003).  
-> [arXiv:quant-ph/0205095v3](https://arxiv.org/abs/quant-ph/0205095)
+> Beauregard, Stéphane. “Circuit for Shor’s Algorithm Using 2n + 3 Qubits.”  
+> *Quantum Information and Computation*, vol. 3, no. 2, 2003.  
+> [arXiv:quant-ph/0205095](https://doi.org/10.48550/arXiv.quant-ph/0205095)
 
 ---
 
-## 📚 Contents
+## Overview
 
-- Quantum Fourier Transform (QFT) and Inverse QFT
-- Phase Addition (`phiADD`) circuits
-- Controlled and doubly-controlled `phiADD` (`C1phiADD`, `C2phiADD`)
-- Modular phase addition `C2phiADDMODN`
-- Modular multiplication `CMultModN`
-- Modular controlled unitary `CU_a`
-- Circuit benchmarking: gate counts, depth, ancilla usage
-- Markdown proofs for correctness of each component
+The code provides quantum circuit constructions for:
+
+- **Quantum addition** in the Fourier basis  
+- **Modular addition** and **modular multiplication**  
+- **Controlled modular multiplication** for use in Shor’s algorithm  
+- **A full oracle for modular exponentiation**, controlled on an input register
+
+The construction uses:
+
+- **Fourier-space addition** circuits (Figure 3)  
+- **Controlled modular adders** (Figures 5–7)  
+- **Controlled-SWAP** gates (Figure 10)
 
 ---
 
-## 🧠 Theory
+## Benchmark Results
 
-All functions are annotated with mathematical derivations or justifications for their correctness, derived directly from Beauregard's paper. This includes:
+For parameters \( a = 7 \), \( n = 4 \):
 
-- Derivations of phase angles
-- Modular arithmetic over the QFT basis
-- Ancilla usage and reversible computation guarantees
+| Metric            | Value                                                                 |
+|-------------------|-----------------------------------------------------------------------|
+| Gate Count        | `{'cp': 288, 'h': 140, 'mcphase': 80, 'swap': 56, 'cx': 24, 'x': 16, 'p': 8, 'ccx': 4}` |
+| Circuit Depth     | 355                                                                   |
+| Ancilla Qubits    | 1                                                                     |
+
+- Gate count growth: \( O(n^2 \log n) \)  
+- Circuit depth: \( O(n \log n) \)  
+- Ancilla usage: constant (Beauregard design)
+
+---
+
+## Usage Instructions
+
+1. **Run the package imports.**
+
+2. **(1A)** Run the `int_to_bit_array` cell.  
+   - Converts an integer to its \( n \)-bit binary array.  
+   - *Example*: Uncomment the usage section to convert \( a = 15 \) for \( n = 4 \).
+
+3. **(1B)** Run the `phiADD` cell.  
+   - Implements \( b + a \) in the Fourier basis.  
+   - *Example*: Uncomment to construct the \( n = 4 \) circuit for \( a = 15 \).  
+   - *(Ref: Figure 3)*
+
+4. **(1C, 1D)** Run the `C1phiADD` and `C2phiADD` cells.  
+   - Implement controlled and doubly-controlled additions.  
+   - *Example*: View circuits for \( n = 4 \), \( a = 15 \).
+
+5. **(2A)** Run the `quantum_fourier_transform` cell.  
+   - Converts binary values to Fourier basis.  
+   - *Example*: Uncomment for \( n = 3 \).
+
+6. **(2B)** Run the `inverse_quantum_fourier_transform` cell.  
+   - Converts back to binary from Fourier basis.  
+   - *Example*: Uncomment for \( n = 3 \).
+
+7. **(2C)** Run the `C2phiADDMODN` cell.  
+   - Doubly-controlled modular adder.  
+   - Requires (1B), (1C), (1D), (2A), (2B).  
+   - *Example*: \( n = 4 \), \( a = 15 \).  
+   - *(Ref: Figure 5)*
+
+8. **(3A)** Run the `CMultModN` cell.  
+   - Performs \( b + ax \mod N \).  
+   - Requires (2A), (2B), (2C).  
+   - *Example*: \( n = 4 \), \( a = 15 \).  
+   - *(Ref: Figure 6)*
+
+9. **(3B)** Run the `CSWAP` cell.  
+   - Implements a controlled-SWAP gate.  
+   - *Example*: View the circuit.  
+   - *(Ref: Figure 10)*
+
+10. **(3C)** Run the `ShorsOracle` cell.  
+    - Controlled \( ax \mod N \) oracle.  
+    - Requires (3A), (3B).  
+    - *Example*: \( n = 4 \), \( a = 15 \).  
+    - *(Ref: Figure 7)*
+
+11. **Run the benchmarking cell.**  
+    - Displays gate counts, depth, and ancilla usage.
+
+---
+
+## References
+
+- Beauregard, Stéphane. “Circuit for Shor’s Algorithm Using 2n + 3 Qubits.”  
+  *Quantum Information and Computation*, vol. 3, no. 2, 2003.  
+  [https://doi.org/10.48550/arXiv.quant-ph/0205095](https://doi.org/10.48550/arXiv.quant-ph/0205095)  
+    - Figure 3: Quantum adder in Fourier basis  
+    - Figure 5: Modular addition  
+    - Figure 6: Modular multiplication  
+    - Figure 7: Modular exponentiation oracle  
+    - Figure 10: Controlled swap (CSWAP)
