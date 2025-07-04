@@ -25,15 +25,13 @@ The construction uses:
 
 ---
 
-## Benchmark Results
+## Benchmarking Results
 
-For parameters \( a = 7 \), \( n = 4 \):
+For parameters \( N = 15 \), \( a = 7 \):
 
-| Metric            | Value                                                                 |
-|-------------------|-----------------------------------------------------------------------|
-| Gate Count        | `{'cp': 288, 'h': 140, 'mcphase': 80, 'swap': 56, 'cx': 24, 'x': 16, 'p': 8, 'ccx': 4}` |
-| Circuit Depth     | 355                                                                   |
-| Ancilla Qubits    | 1                                                                     |
+| Gate Count      | `{'cp': 1888, 'h': 468, 'mcphase': 288, 'swap': 208, 'cx': 48, 'x': 32, 'p': 16, 'ccx': 8}` |
+| Circuit Depth   | 1159                                                                                      |
+| Ancilla Qubits  | 1   
 
 - Gate count growth: \( O(n^2 \log n) \)  
 - Circuit depth: \( O(n \log n) \)  
@@ -47,17 +45,17 @@ For parameters \( a = 7 \), \( n = 4 \):
 
 2. **(1A)** Run the `int_to_bit_array` cell.  
    - Converts an integer to its \( n \)-bit binary array.  
-   - (Optional) Uncomment the valid code in the example usage section to see the $n = 4$ bit array representation of $a = 15$.
+   - (Optional) Uncomment the valid code in the example usage section to see the $n = 8$ bit array representation of $a = 7$.
 
 3. **(1B)** Run the `phiADD` cell.  
    - Implements \( b + a \) in the Fourier basis.
    - Requires (1A)
-   - (Optional) Uncomment the valid code in the example usage section to see the circuit for $n = 4$ qubits that adds $a = 15$.
+   - (Optional) Uncomment the valid code in the example usage section to see the circuit for $n = 8$ qubits that adds $a = 7$.
    - *(Ref: Figure 3)*
 
 4. **(1C, 1D)** Run the `C1phiADD` and `C2phiADD` cells.  
    - Implement controlled and doubly-controlled additions.  
-   - (Optional) Uncomment the valid code in the example usage section to see the circuit for $n = 4$ qubits that adds $a = 15$.
+   - (Optional) Uncomment the valid code in the example usage section to see the circuit for $n = 8$ qubits that adds $a = 7$.
 
 5. **(2A)** Run the `quantum_fourier_transform` cell.  
    - Converts binary values to Fourier basis.  
@@ -70,13 +68,13 @@ For parameters \( a = 7 \), \( n = 4 \):
 7. **(2C)** Run the `C2phiADDMODN` cell.  
    - Doubly-controlled modular adder that perform \(b + a \mod N \).  
    - Requires (1B), (1C), (1D), (2A), (2B).  
-   - (Optional) Uncomment the valid code in the example usage section to see the circuit for $n = 4$ qubits that adds $a = 15$.
+   - (Optional) Uncomment the valid code in the example usage section to see the circuit for $n = 8$ qubits that adds $a = 7$.
    - *(Ref: Figure 5)*
 
 8. **(3A)** Run the `CMultModN` cell.  
    - Performs \( b + ax \mod N \).  
    - Requires (2A), (2B), (2C).  
-   - (Optional) Uncomment the valid code in the example usage section to see the circuit for $n = 4$ qubits that adds $a = 15$.
+   - (Optional) Uncomment the valid code in the example usage section to see the circuit for $n = 8$ qubits that adds $a = 7$.
    - *(Ref: Figure 6)*
 
 9. **(3B)** Run the `CSWAP` cell.  
@@ -84,10 +82,10 @@ For parameters \( a = 7 \), \( n = 4 \):
    - (Optional) Uncomment the valid code in the example usage section to see the circuit.
    - *(Ref: Figure 10)*
 
-10. **(3C)** Run the `ShorsOracle` cell.  
+10. **(3C)** Run the `ShorsMultiplier` cell.  
     - Controlled \( ax \mod N \) oracle.  
     - Requires (3A), (3B).  
-    - (Optional) Uncomment the valid code in the example usage section to see the circuit for $n = 4$ qubits that adds $a = 15$.
+    - (Optional) Uncomment the example code to view the circuit that performs modular multiplication for factoring $N=15$ with base $a = 7$ in Shor’s algorithm.
     - *(Ref: Figure 7)*
 
 11. **Run the benchmarking cell.**  
