@@ -46,11 +46,11 @@ For factoring \( N = 15 \) with base \( a = 7 \):
 1. **Run the package imports.**
 
 2. **(1A)** Run the `int_to_bit_array` cell.  
-   - Converts an integer to its \( n \)-bit binary array.  
+   - Converts an integer to its $n$-bit binary array.  
    - (Optional) Uncomment the valid code in the example usage section to see the $n = 8$ bit array representation of $a = 7$.
 
 3. **(1B)** Run the `phiADD` cell.  
-   - Implements \( b + a \) in the Fourier basis.
+   - Implements $ b + a $ in the Fourier basis.
    - Requires (1A)
    - (Optional) Uncomment the valid code in the example usage section to see the circuit for $n = 8$ qubits that adds $a = 7$.
    - *(Ref: Figure 3)*
@@ -68,13 +68,13 @@ For factoring \( N = 15 \) with base \( a = 7 \):
    - (Optional) Uncomment the valid code in the example usage section to see the circuit for $n = 3$ qubits.
 
 7. **(2C)** Run the `C2phiADDMODN` cell.  
-   - Doubly-controlled modular adder that perform \(b + a \mod N \).  
+   - Doubly-controlled modular adder that performs $|b + a \mod N \rangle $.  
    - Requires (1B), (1C), (1D), (2A), (2B).  
    - (Optional) Uncomment the valid code in the example usage section to see the circuit for $n = 8$ qubits that adds $a = 7$.
    - *(Ref: Figure 5)*
 
 8. **(3A)** Run the `CMultModN` cell.  
-   - Performs \( b + ax \mod N \).  
+   - Performs $|b + ax \mod N \rangle$.  
    - Requires (2A), (2B), (2C).  
    - (Optional) Uncomment the valid code in the example usage section to see the circuit for $n = 8$ qubits that adds $a = 7$.
    - *(Ref: Figure 6)*
