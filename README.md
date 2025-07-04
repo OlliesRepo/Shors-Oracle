@@ -50,7 +50,7 @@ For factoring \( N = 15 \) with base \( a = 7 \):
    - (Optional) Uncomment the valid code in the example usage section to see the $n = 8$ bit array representation of $a = 7$.
 
 3. **(1B)** Run the `phiADD` cell.  
-   - Implements $ b + a $ in the Fourier basis.
+   - Implements modular addition in the Fourier basis.
    - Requires (1A)
    - (Optional) Uncomment the valid code in the example usage section to see the circuit for $n = 8$ qubits that adds $a = 7$.
    - *(Ref: Figure 3)*
@@ -68,13 +68,13 @@ For factoring \( N = 15 \) with base \( a = 7 \):
    - (Optional) Uncomment the valid code in the example usage section to see the circuit for $n = 3$ qubits.
 
 7. **(2C)** Run the `C2phiADDMODN` cell.  
-   - Doubly-controlled modular adder that performs $|b + a \mod N \rangle $.  
+   - Doubly-controlled modular adder that outputs $|b + a \mod N \rangle $.  
    - Requires (1B), (1C), (1D), (2A), (2B).  
    - (Optional) Uncomment the valid code in the example usage section to see the circuit for $n = 8$ qubits that adds $a = 7$.
    - *(Ref: Figure 5)*
 
 8. **(3A)** Run the `CMultModN` cell.  
-   - Performs $|b + ax \mod N \rangle$.  
+   - Outputs $|b + ax \mod N \rangle$.  
    - Requires (2A), (2B), (2C).  
    - (Optional) Uncomment the valid code in the example usage section to see the circuit for $n = 8$ qubits that adds $a = 7$.
    - *(Ref: Figure 6)*
@@ -85,7 +85,7 @@ For factoring \( N = 15 \) with base \( a = 7 \):
    - *(Ref: Figure 10)*
 
 10. **(3C)** Run the `ShorsMultiplier` cell.  
-    - Controlled $|ax \mod N \rangle$ oracle.  
+    - Outputs $|ax \mod N \rangle$.  
     - Requires (3A), (3B).  
     - (Optional) Uncomment the example code to view the circuit that performs modular multiplication for factoring $N=15$ with base $a = 7$ in Shor’s algorithm.
     - *(Ref: Figure 7)*
