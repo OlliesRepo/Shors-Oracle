@@ -27,7 +27,7 @@ The construction uses:
 
 ## Benchmarking Results
 
-For parameters \( N = 15 \), \( a = 7 \):
+For factoring \( N = 15 \) with base \( a = 7 \):
 
 | Gate Count      | `{'cp': 1888, 'h': 468, 'mcphase': 288, 'swap': 208, 'cx': 48, 'x': 32, 'p': 16, 'ccx': 8}` |
 | Circuit Depth   | 1159                                                                                      |
