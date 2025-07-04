@@ -29,9 +29,11 @@ The construction uses:
 
 For factoring \( N = 15 \) with base \( a = 7 \):
 
+| Metric          | Value                                                                                     |
+|-----------------|-------------------------------------------------------------------------------------------|
 | Gate Count      | `{'cp': 1888, 'h': 468, 'mcphase': 288, 'swap': 208, 'cx': 48, 'x': 32, 'p': 16, 'ccx': 8}` |
 | Circuit Depth   | 1159                                                                                      |
-| Ancilla Qubits  | 1   
+| Ancilla Qubits  | 1                                                                                         
 
 - Gate count growth: \( O(n^2 \log n) \)  
 - Circuit depth: \( O(n \log n) \)  
