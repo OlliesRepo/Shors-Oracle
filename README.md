@@ -27,11 +27,7 @@ The construction uses:
 
 The full implementation is:
 
-U |x⟩₁ |y⟩ₙ =
-  if c = 1 and x < N:
-    |c⟩₁ |ax mod N⟩ₙ
-  else:
-    |c⟩₁ |x⟩ₙ
+![Modular multiplication oracle](Shor1.png)
 
 ## Benchmarking Results
 
