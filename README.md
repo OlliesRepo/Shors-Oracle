@@ -25,6 +25,14 @@ The construction uses:
 
 ---
 
+The full implmentation is $$
+U \, |x\rangle_1 \, |y\rangle_n =
+\begin{cases}
+|c\rangle_1 \, |ax \bmod N\rangle_n, & \text{if } c = 1 \text{ and } x < N, \\
+|c\rangle_1 \, |x\rangle_n, & \text{otherwise}.
+\end{cases}
+$$
+
 ## Benchmarking Results
 
 For factoring \( N = 15 \) with base \( a = 7 \):
