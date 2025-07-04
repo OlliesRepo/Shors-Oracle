@@ -89,7 +89,7 @@ For factoring \( N = 15 \) with base \( a = 7 \):
    - *(Ref: Figure 10)*
 
 10. **(3C)** Run the `ShorsMultiplier` cell.  
-    - Outputs $|ax \mod N \rangle$.  
+    - Outputs $|ax \mod N \rangle$ (controlled).  
     - Requires (3A), (3B).  
     - (Optional) Uncomment the example code to view the circuit that performs modular multiplication for factoring $N=15$ with base $a = 7$ in Shor’s algorithm.
     - *(Ref: Figure 7)*
