@@ -25,13 +25,11 @@ The construction uses:
 
 ---
 
-The full implmentation is $$
-U \, |x\rangle_1 \, |y\rangle_n =
+The full implmentation is $U \, |x\rangle_1 \, |y\rangle_n =
 \begin{cases}
 |c\rangle_1 \, |ax \bmod N\rangle_n, & \text{if } c = 1 \text{ and } x < N, \\
 |c\rangle_1 \, |x\rangle_n, & \text{otherwise}.
-\end{cases}
-$$
+\end{cases}$
 
 ## Benchmarking Results
 
